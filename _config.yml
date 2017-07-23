@@ -2,3 +2,6 @@ name: Todd Morrill
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
