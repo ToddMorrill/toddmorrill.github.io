@@ -4,4 +4,4 @@ permalink: /blog/:year/:month/:day/:title
 highlighter: rouge
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
