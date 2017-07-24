@@ -42,6 +42,10 @@ ul.posts li {
     list-style: none;
 }
 
+/* code wrapping */
+.highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
+
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 .highlight .hll { background-color: #ffffcc }
