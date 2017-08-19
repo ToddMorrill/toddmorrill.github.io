@@ -2,6 +2,16 @@ body {
     margin: 60px auto;
     width: 70%;
 }
+nav {
+    background-color: white;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+#main {
+    width: 300px;
+    float: left;
+}
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -10,32 +20,46 @@ nav ul, footer ul {
 }
 nav ul li, footer ul li {
     display: inline;
+    margin-left: 10px;
     margin-right: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #000;
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: #0000FF;
 }
 a:hover {
     text-decoration: underline;
 }
 h1 {
-    font-size: 3em;
+    font-size: 2em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+h2 {
+    font-size: 1.5em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+h3 {
+    font-size: 1.25em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1.5em;
+    font-size: 1em;
     line-height: 1.4em;
     color: #333;
 }
 footer {
+    clear: both;
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
 
 ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
+    margin: 10px auto 20px; 
+    font-size: 1em;
 }
 
 ul.posts li {
