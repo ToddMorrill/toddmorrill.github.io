@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Detecting Entrained Signals"
+title: "Detecting Entrained Signals - Part I"
 date: 2017-10-10
 categories: Biometrics
 ---
