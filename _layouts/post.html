@@ -9,6 +9,18 @@ layout: default
 </div>
 
 <!--Courtesy of: https://github.com/izuzak/izuzak.github.com/blob/master/_layouts/post.html#L24-L55-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+
+<script type="text/javascript">
+  $("#post p").each( function(index) {
+    if (index > 0 && $.trim($(this).text()).length > 0) {
+      $(this).attr("id", "par" + index.toString());
+      var html = $(this).html();
+      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
+    }
+  });
+</script>
+
 <div id="comments">
   <h2>Comments</h2>
   <div id="header">
