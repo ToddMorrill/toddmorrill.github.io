@@ -3,6 +3,7 @@ layout: post
 title: "BCI with Entrainment"
 date: 2017-10-11
 categories: Biometrics
+commentIssueId: 28
 ---
 TLDR; Brain control interface (BCI) app using entrainment.
 

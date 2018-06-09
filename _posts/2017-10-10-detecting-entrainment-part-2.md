@@ -3,6 +3,7 @@ layout: post
 title: "Detecting Entrained Signals - Part II"
 date: 2017-10-10
 categories: Biometrics
+commentIssueId: 27
 ---
 TLDR; I detected entrained brain waves from the EEG headset.
 

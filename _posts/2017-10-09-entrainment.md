@@ -3,6 +3,7 @@ layout: post
 title: "Entrainment with Visual Stimuli"
 date: 2017-10-09
 categories: Biometrics
+commentIssueId: 25
 ---
 TLDR; I created a strobe video that my brain can entrain with.
 
