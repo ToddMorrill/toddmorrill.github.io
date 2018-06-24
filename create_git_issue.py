@@ -48,7 +48,9 @@ def make_github_issue(title, body=None):
         file_contents = f.read()
     with open("./_posts/{}".format(args.post_name), "w") as f:
         file_contents = file_contents.split("\n")
-        file_contents.insert(5, "commentIssueId: {}".format(issue_number))
+        # find the second occurrence of "---", and use as your insertion point
+        insert_line_num = [i for i, n in enumerate(file_contents) if n == "---"][1]
+        file_contents.insert(insert_line_num, "commentIssueId: {}".format(issue_number))
         for line in file_contents:
             f.write(line+"\n")
 
