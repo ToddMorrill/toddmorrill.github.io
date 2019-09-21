@@ -1,6 +1,10 @@
 body {
     margin: 60px auto;
     width: 70%;
+    background-image: url("/assets/Euclidean_Voronoi_diagram_edit.png");
+    background-size: 140px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 nav {
     background-color: white;
