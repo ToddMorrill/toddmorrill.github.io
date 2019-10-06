@@ -3,30 +3,6 @@ import json
 import requests
 import argparse
 
-parser = argparse.ArgumentParser(description='Login to github & create issue')
-parser.add_argument('--username', default='tmorrill12@gmail.com',
-    dest='username', help='github email address')
-parser.add_argument('--password', dest='password',
-                   help='github password')
-parser.add_argument('--repo_owner', default='ToddMorrill',
-    dest='repo_owner', help='github repo owner handle')
-parser.add_argument('--repo_name', default='toddmorrill.github.io',
-    dest='repo_name', help='github repo name')
-parser.add_argument('--post_name', required=True,
-    dest='post_name', help='full post filename (with .md)')
-
-
-args = parser.parse_args()
-
-# Authentication for user filing issue (must have read/write access to
-# repository to add issue to)
-USERNAME = args.username
-PASSWORD = args.password
-
-# The repository to add this issue to
-REPO_OWNER = args.repo_owner
-REPO_NAME = args.repo_name
-
 def make_github_issue(title, body=None):
     '''Create an issue on github.com using the given parameters.'''
     # Our url to create issues via POST
@@ -61,6 +37,28 @@ def make_github_issue(title, body=None):
         print ('Response:', r.content)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Login to github & create issue')
+    parser.add_argument('--username', default='tmorrill12@gmail.com',
+        dest='username', help='github email address')
+    parser.add_argument('--password', dest='password',
+                    help='github password')
+    parser.add_argument('--repo_owner', default='ToddMorrill',
+        dest='repo_owner', help='github repo owner handle')
+    parser.add_argument('--repo_name', default='toddmorrill.github.io',
+        dest='repo_name', help='github repo name')
+    parser.add_argument('--post_name', required=True,
+        dest='post_name', help='full post filename (with .md)')
+    args = parser.parse_args()
+
+    # Authentication for user filing issue (must have read/write access to
+    # repository to add issue to)
+    USERNAME = args.username
+    PASSWORD = args.password
+
+    # The repository to add this issue to
+    REPO_OWNER = args.repo_owner
+    REPO_NAME = args.repo_name
+
     title = "comments for post: {}".format(args.post_name)
     body = "open issue for comments"
     
