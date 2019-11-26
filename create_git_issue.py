@@ -3,6 +3,7 @@ import json
 import requests
 import argparse
 
+
 def make_github_issue(title, body=None):
     '''Create an issue on github.com using the given parameters.'''
     # Our url to create issues via POST
@@ -11,8 +12,7 @@ def make_github_issue(title, body=None):
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
     # Create our issue
-    issue = {'title': title,
-             'body': body}
+    issue = {'title': title, 'body': body}
     # Add the issue to our repository
     r = session.post(url, json.dumps(issue))
 
@@ -25,29 +25,38 @@ def make_github_issue(title, body=None):
     with open("./_posts/{}".format(args.post_name), "w") as f:
         file_contents = file_contents.split("\n")
         # find the second occurrence of "---", and use as your insertion point
-        insert_line_num = [i for i, n in enumerate(file_contents) if n == "---"][1]
-        file_contents.insert(insert_line_num, "commentIssueId: {}".format(issue_number))
+        insert_line_num = [
+            i for i, n in enumerate(file_contents) if n == "---"
+        ][1]
+        file_contents.insert(insert_line_num,
+                             "commentIssueId: {}".format(issue_number))
         for line in file_contents:
-            f.write(line+"\n")
+            f.write(line + "\n")
 
     if r.status_code == 201:
-        print ('Successfully created Issue {0:s}'.format(title))
+        print('Successfully created issue number {} for: "{0:s}"'.format(
+            issue_number, title))
     else:
-        print ('Could not create Issue {0:s}'.format(title))
-        print ('Response:', r.content)
+        print('Could not create issue: {0:s}'.format(title))
+        print('Response:', r.content)
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Login to github & create issue')
-    parser.add_argument('--username', default='tmorrill12@gmail.com',
-        dest='username', help='github email address')
-    parser.add_argument('--password', dest='password',
-                    help='github password')
-    parser.add_argument('--repo_owner', default='ToddMorrill',
-        dest='repo_owner', help='github repo owner handle')
-    parser.add_argument('--repo_name', default='toddmorrill.github.io',
-        dest='repo_name', help='github repo name')
-    parser.add_argument('--post_name', required=True,
-        dest='post_name', help='full post filename (with .md)')
+    parser = argparse.ArgumentParser(
+        description='Login to github & create issue')
+    parser.add_argument('username',
+                        default='tmorrill12@gmail.com',
+                        help='github email address')
+    parser.add_argument('password', help='github password')
+    parser.add_argument('post_name', help='full post filename (with .md)')
+    parser.add_argument('--repo_owner',
+                        default='ToddMorrill',
+                        dest='repo_owner',
+                        help='github repo owner handle')
+    parser.add_argument('--repo_name',
+                        default='toddmorrill.github.io',
+                        dest='repo_name',
+                        help='github repo name')
     args = parser.parse_args()
 
     # Authentication for user filing issue (must have read/write access to
@@ -61,5 +70,5 @@ if __name__ == '__main__':
 
     title = "comments for post: {}".format(args.post_name)
     body = "open issue for comments"
-    
+
     make_github_issue(title=title, body=body)
