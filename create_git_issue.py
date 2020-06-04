@@ -34,10 +34,10 @@ def make_github_issue(title, body=None):
             f.write(line + "\n")
 
     if r.status_code == 201:
-        print('Successfully created issue number {} for: "{0:s}"'.format(
+        print('Successfully created issue number {} for: "{}"'.format(
             issue_number, title))
     else:
-        print('Could not create issue: {0:s}'.format(title))
+        print('Could not create issue: {}'.format(title))
         print('Response:', r.content)
 
 
