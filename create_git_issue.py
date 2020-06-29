@@ -43,12 +43,12 @@ def make_github_issue(title, body=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Login to github & create issue')
+        description='Login to github & create an issue for comments.')
     parser.add_argument('username',
                         default='tmorrill12@gmail.com',
                         help='github email address')
     parser.add_argument('password', help='github password')
-    parser.add_argument('post_name', help='full post filename (with .md)')
+    parser.add_argument('post_name', help='Full post filename (with .md) (e.g. 2020-06-28-On-Community.md)')
     parser.add_argument('--repo_owner',
                         default='ToddMorrill',
                         dest='repo_owner',
