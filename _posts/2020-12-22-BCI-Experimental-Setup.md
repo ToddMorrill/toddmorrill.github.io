@@ -6,7 +6,7 @@ categories:
     - Biometrics
 ---
 
-TLDR; this post was adapted from a research proposal that I wrote while applying to the NSF GRFP.
+TLDR; This post was adapted from a research proposal that I wrote while applying to the NSF GRFP.
 
 Suppose you were tasked with listening to what one particular person was saying in a crowded arena filled with 80,000 cheering fans. This is analogous to listening to a few neurons firing amongst the approximately 100 billion neurons in the human brain. Deep learning models have gotten significantly better at decoding signals from raw Electroencephalogram (EEG) data in recent years but there is still tremendous room for improvement. One of my research aims is to develop deep learning models that expand the set of mental states that can be detected from EEG data.
 
