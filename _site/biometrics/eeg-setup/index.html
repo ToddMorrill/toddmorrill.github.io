@@ -23,16 +23,30 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Todd's Blog">
 <meta property="og:title" content="EEG Setup">
-<meta property="og:url" content="https://toddmorrill.github.io/biometrics/eeg-setup/">
+<meta property="og:url" content="http://localhost:4000/biometrics/eeg-setup/">
 
 
   <meta property="og:description" content="TLDR; I’m getting started with biometric sensor data, namely EEG.">
 
 
 
-  <meta property="og:image" content="https://toddmorrill.github.io/assets/images/eeg/eeg_headset.jpg">
+  <meta property="og:image" content="http://localhost:4000/assets/images/eeg/eeg_headset.jpg">
 
 
+
+  <meta name="twitter:site" content="@tee_oh_double_d">
+  <meta name="twitter:title" content="EEG Setup">
+  <meta name="twitter:description" content="TLDR; I’m getting started with biometric sensor data, namely EEG.">
+  <meta name="twitter:url" content="http://localhost:4000/biometrics/eeg-setup/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/eeg/eeg_headset.jpg">
+    
+  
+
+  
 
 
 
@@ -47,7 +61,7 @@
   
 
 
-<link rel="canonical" href="https://toddmorrill.github.io/biometrics/eeg-setup/">
+<link rel="canonical" href="http://localhost:4000/biometrics/eeg-setup/">
 
 
 
@@ -58,7 +72,8 @@
     
       "@type": "Person",
       "name": "Todd Morrill",
-      "url": "https://toddmorrill.github.io/"
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/tee_oh_double_d","https://www.linkedin.com/in/todd-morrill-a0b47b2a"]
     
   }
 </script>
@@ -93,6 +108,13 @@
     <!-- start custom head snippets -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 
 <!-- end custom head snippets -->
 
@@ -121,8 +143,19 @@
           <span class="site-subtitle">Thoughts on machine learning and applications</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a>
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://toddmorrill.github.io/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/quotes/">Quotes</a>
             </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">Toggle menu</span>
@@ -151,10 +184,16 @@
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/todd.jpg" alt="Todd Morrill" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="https://toddmorrill.github.io/" itemprop="url">Todd Morrill</a>
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Todd Morrill</a>
     </h3>
     
       <div class="author__bio p-note" itemprop="description">
@@ -189,6 +228,10 @@
             <li><a href="https://github.com/ToddMorrill" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/todd-morrill-a0b47b2a" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
           
         
       
@@ -267,7 +310,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="https://toddmorrill.github.io/biometrics/eeg-setup/" class="u-url" itemprop="url">EEG Setup
+            <a href="http://localhost:4000/biometrics/eeg-setup/" class="u-url" itemprop="url">EEG Setup
 </a>
           </h1>
           
@@ -291,7 +334,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          4 minute read
         
       </span>
     
@@ -307,34 +350,46 @@
 
 <p>For the last 2 weeks I’ve been spending some time learning about EEG signals and biometrics signals more broadly. EEG signals are an interesting source of data for us because they have the power to tap into what might be going on in someone’s head - what’s their reaction to this advertisement? how engaging is this movie? and can we move one step closer toward a man-machine fusion, one that you can use to issue commands to type, text, send messages, etc. using just your mind?</p>
 
-<div style="text-align:center;"><img src="/assets/images/eeg/complete_setup.jpg" /></div>
+<figure class="align-center">
+  <img src="/assets/images/eeg/complete_setup.jpg" alt="the complete EEG setup" />
+  <figcaption>The complete EEG setup</figcaption>
+</figure>
 
-<p>These are a couple of the types of questions that I’ll be attempting to answer in the coming weeks and months. There seems to be a growing interest in making better use of biometrics data, like Audi testing out the new <a style="color:#0000FF" href="https://www.engadget.com/2017/07/13/audi-millenials-self-driving-boredom/" target="_blank">autonomous A8</a>. If we combine EEG data with other data sources such as video (e.g. facial recognition, visual stimuli), activity tracker data (e.g. GSR, heart rate, accelerometer) we can achieve interesting combinations. My hope is that machine learning, and especially deep learning, will take us beyond descriptive statistics. I see a lot of applications of EEG using well known features such as alpha wave detection to do fairly binary task (i.e. Move/don’t move, yes/no). What if we don’t know what patterns to look for in the data? That’s where deep learning excels. Deep learning may allow us to actually discriminate between discrete thoughts from moment to moment, learn those thought patterns, and then be able to take an action when it sees those learned patterns, such as controlling which direction you want to move in pac-man or something more complex like texting. In part, this is our motivation for exploring this somewhat mature technology (EEG) - deep learning’s ability to find patterns in places we previously thought impossible.  Finally, we find similarities between biometrics data and what you would find in an IoT/Sensor Streaming scenario and it’s nice to have some familiarity with the “art of the possible” as the partners always like to say.</p>
+<p>These are a couple of the types of questions that I’ll be attempting to answer in the coming weeks and months. There seems to be a growing interest in making better use of biometrics data, like Audi testing out the new <a href="https://www.engadget.com/2017/07/13/audi-millenials-self-driving-boredom/" target="_blank">autonomous A8</a>. If we combine EEG data with other data sources such as video (e.g. facial recognition, visual stimuli), activity tracker data (e.g. GSR, heart rate, accelerometer) we can achieve interesting combinations. My hope is that machine learning, and especially deep learning, will take us beyond descriptive statistics. I see a lot of applications of EEG using well known features such as alpha wave detection to do fairly binary task (i.e. Move/don’t move, yes/no). What if we don’t know what patterns to look for in the data? That’s where deep learning excels. Deep learning may allow us to actually discriminate between discrete thoughts from moment to moment, learn those thought patterns, and then be able to take an action when it sees those learned patterns, such as controlling which direction you want to move in pac-man or something more complex like texting. In part, this is our motivation for exploring this somewhat mature technology (EEG) - deep learning’s ability to find patterns in places we previously thought impossible.  Finally, we find similarities between biometrics data and what you would find in an IoT/Sensor Streaming scenario and it’s nice to have some familiarity with the “art of the possible” as the partners always like to say.</p>
 
-<p>If you’re interested in learning more about the setup and EEG signals more broadly, I’d recommend <a style="color:#0000FF" href="eeghacker.blogspot.com blog" target="_blank">Chip Audette’s</a> blog. I intend to pick up where this blog leaves off. Two other companies doing neat stuff with biometrics data are <a style="color:#0000FF" href="imotions.com" target="_blank">imotions.com</a> and <a style="color:#0000FF" href="biopac.com" target="_blank">biopac.com</a>.</p>
+<p>If you’re interested in learning more about the setup and EEG signals more broadly, I’d recommend <a href="eeghacker.blogspot.com blog" target="_blank">Chip Audette’s</a> blog. I intend to pick up where this blog leaves off. Two other companies doing neat stuff with biometrics data are <a href="imotions.com" target="_blank">imotions.com</a> and <a href="biopac.com" target="_blank">biopac.com</a>.</p>
 
 <p>This week I’m going to introduce the hardware we’ve chosen:</p>
 
 <ul>
-  <li><a style="color:#0000FF" href="https://shop.openbci.com/collections/frontpage/products/ultracortex-mark-iv?variant=23280741955" target="_blank">16 Channel OpenBCI Mark 4 Headset</a></li>
-  <li><a style="color:#0000FF" href="https://www.empatica.com/e4-wristband" target="_blank">Empatica E4 Wristband</a></li>
+  <li><a href="https://shop.openbci.com/collections/frontpage/products/ultracortex-mark-iv?variant=23280741955" target="_blank">16 Channel OpenBCI Mark 4 Headset</a></li>
+  <li><a href="https://www.empatica.com/e4-wristband" target="_blank">Empatica E4 Wristband</a></li>
 </ul>
 
 <p>UPS lost the E4 Wristband so I’m still waiting for that to arrive, but the OpenBCI Mark 4 Headset arrived in the mail and I want to recap what I learned while assembling it.</p>
 
 <p>The OpenBCI Mark 4 Headset comes in a few different forms: assembled, unassembled, or self 3D printed. I chose unassembled and put the headset together myself. Here were a few things that I saw along the way.</p>
 
-<div style="text-align:center;"><img src="/assets/images/eeg/assembly_1.JPG" /></div>
+<figure class="align-center">
+  <img src="/assets/images/eeg/assembly_1.JPG" alt="Assembling the headset" />
+  <figcaption>Assembling the headset</figcaption>
+</figure>
 
 <p>The documentation page was super helpful for assembling the headset. I didn’t have all the tools they listed by I did just fine assembling the headset with a razor blade, some sandpaper, a screw driver, and super glue. The docs make it seem like you only need one super glue but I ended up needing 2 .14oz Loctite super glues. I’d also recommend gloves as you need to apply a lot of glue to this headset and you’re bound to get a bunch on your fingers. Have fun picking that off for the next couple hours.. I found out the hard way.</p>
 
-<div style="text-align:center;"><img src="/assets/images/eeg/assembly_2.JPG" /></div>
+<figure class="align-center">
+  <img src="/assets/images/eeg/assembly_2.JPG" alt="Superglue on my fingers" />
+  <figcaption>Superglue on my fingers</figcaption>
+</figure>
 
 <p>After painstakingly glueing everything together, you arrive at the electronics. It’s fairly obvious how the daisy board (the smaller board) sits on top of the main board (the bigger board) and how the USB Bluetooth receiver works. The trickier part, however, is pinning down all those wires running from the electrodes back to the cyton boards; in my case, 16 channels. It was also unclear why I was getting a “RAILED” error message for the 9-16 channels from the OpenBCI GUI when I plugged everything in and tried to stream EEG waves. It turns out that you need to use the splitter wire provided in the Cyton board box to connect the “SRG ground” signal to both the main board and the daisy board. After that fix, I was up and running.</p>
 
-<p>I promptly recorded about a minute of <a style="color:#0000FF" href="https://github.com/ToddMorrill/EEG/tree/master/kmeans/data" target="_blank">16 channel + accelerometer data</a> if anyone is interested in seeing that. I’ve attached a sample data set below where I start normal (eyes open), then close my eyes (should see alpha waves), clench my jaw (lots of artifacts), and then shake my head side-to-side and front-to-back (see what the accelerometer picked up). My hypothesis is that kmeans might be able discriminate between the ~5 different actions above.</p>
+<p>I promptly recorded about a minute of <a href="https://github.com/ToddMorrill/EEG/tree/master/kmeans/data" target="_blank">16 channel + accelerometer data</a> if anyone is interested in seeing that. I’ve attached a sample data set below where I start normal (eyes open), then close my eyes (should see alpha waves), clench my jaw (lots of artifacts), and then shake my head side-to-side and front-to-back (see what the accelerometer picked up). My hypothesis is that kmeans might be able discriminate between the ~5 different actions above.</p>
 
-<div style="text-align:center;"><img src="/assets/images/eeg/assembly_4.JPG" /></div>
+<figure class="align-center">
+  <img src="/assets/images/eeg/assembly_4.JPG" alt="Assembling the electronics" />
+  <figcaption>Assembling the electronics</figcaption>
+</figure>
 
 <p>Next up, getting into the code.</p>
 
@@ -344,6 +399,21 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#biometrics" class="page__taxonomy-item p-category" rel="tag">biometrics</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -372,11 +442,11 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=EEG+Setup%20https%3A%2F%2Ftoddmorrill.github.io%2Fbiometrics%2Feeg-setup%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=tee_oh_double_d&text=EEG+Setup%20http%3A%2F%2Flocalhost%3A4000%2Fbiometrics%2Feeg-setup%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftoddmorrill.github.io%2Fbiometrics%2Feeg-setup%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fbiometrics%2Feeg-setup%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftoddmorrill.github.io%2Fbiometrics%2Feeg-setup%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fbiometrics%2Feeg-setup%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -411,6 +481,17 @@
     </div>
 
     
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
 
     <div id="footer" class="page__footer">
       <footer>
@@ -426,7 +507,13 @@
     
       
         
+          <li><a href="https://twitter.com/tee_oh_double_d" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
       
+        
+      
+        
+          <li><a href="https://github.com/ToddMorrill" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
       
         
@@ -435,6 +522,8 @@
       
         
       
+        
+          <li><a href="https://www.linkedin.com/in/todd-morrill-a0b47b2a" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
         
       
     
@@ -456,13 +545,35 @@
 
 
 
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-121354524-1']);
+  
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
 
 
 
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://toddmorrill.github.io/biometrics/eeg-setup/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.url = "http://localhost:4000/biometrics/eeg-setup/";  /* Replace PAGE_URL with your page's canonical URL variable */
       this.page.identifier = "/biometrics/eeg-setup"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
@@ -480,6 +591,22 @@
 
 
 
+<script type="text/javascript" async
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+ </script>
+
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+ </script>
 
   </body>
 </html>
