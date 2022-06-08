@@ -26,7 +26,7 @@ url                      : "http://localhost:4000"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ToddMorrill/toddmorrill.github.io"
 teaser                   : "/assets/images/eeg/eeg_headset.jpg"
-logo                     : "/assets/images/robot_1f916.png"
+logo                     : "/assets/images/Euclidean_Voronoi_diagram.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200

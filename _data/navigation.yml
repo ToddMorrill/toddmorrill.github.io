@@ -3,7 +3,7 @@ main:
   - title: "Posts"
     url: /posts/
   - title: "About"
-    url: https://toddmorrill.github.io/about/
+    url: /about/
   - title: "Tags"
     url: /tags/
   - title: "Quotes"
