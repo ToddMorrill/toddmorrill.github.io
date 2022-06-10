@@ -1,9 +1,12 @@
 ---
-layout: post
 title: "BCI with Entrainment"
 date: 2017-10-11
 categories: Biometrics
-commentIssueId: 28
+tags:
+    - biometrics
+header:
+    teaser: /assets/images/entrainment/flask_app_architecture.png
+excerpt: TLDR; Brain control interface (BCI) app using entrainment.
 ---
 TLDR; Brain control interface (BCI) app using entrainment.
 
@@ -11,14 +14,14 @@ This is the final post on entrainment, which is a culmination of the work explai
 
 Now that we can detect a 10 and 12hz signal with reasonably high fidelity, we can create a quick demo to demonstrate our new brain computer interface (BCI). A colleague suggested making something move across the screen so that's what I went with. At a high level, I created a Flask app that handles streaming EEG data, and based on the signal that it detects, it moves yet another colleague's CAT across the screen to the left or to the right. I could spend days tweaking this to make it better but the important thing is that it works and we learned a tremendous amount about the dynamics of the EEG signal in the process. After confirming our setup, we're ready to move on to some machine learning experiments, but I digress.
 
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/flask_app_architecture.png"></div>
-<div style="text-align:center;">Loosely speaking, these are the components of the app. Viewers might argue that the Flask app <i>is</i> the server side but I've got it in the middle to drive home the point of asynchronous communication.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/flask_app_architecture.png" alt="Flask app architecture">
+  <figcaption>Loosely speaking, these are the components of the app. Viewers might argue that the Flask app <i>is</i> the server side but I've got it in the middle to drive home the point of asynchronous communication.</figcaption>
+</figure>
 
 To summarize, the EEG headset is connected my local computer. It streams data to Python/Flask. I run an FFT on small segments (remember the tape reel analogy?) and try to detect the signal that I'm looking for. If I detect it, I send a signal to the client side visualization and move the cat using javascript/jquery/html.
 
-In order to make this work, I had to use a websocket to handle the streaming of information from the server (my local machine running the Flask app) to the client (Chrome). The <a href="https://flask-socketio.readthedocs.io/en/latest/">Flask-socketio package</a> was pretty intuitive and it's documentation was solid. In the process of creating this app, I learned an incredible amount about the canonical client-server architecture and how you ideally want to offload some processes to the client side (say I productionized this, it would be paramount that I could capture the EEG steam in javascript on your machine, not mine).
+In order to make this work, I had to use a websocket to handle the streaming of information from the server (my local machine running the Flask app) to the client (Chrome). The <a href="https://flask-socketio.readthedocs.io/en/latest/" target="_blank">Flask-socketio package</a> was pretty intuitive and it's documentation was solid. In the process of creating this app, I learned an incredible amount about the canonical client-server architecture and how you ideally want to offload some processes to the client side (say I productionized this, it would be paramount that I could capture the EEG steam in javascript on your machine, not mine).
 
 I also now better appreciate the challenge of trying to run multiple things simultaneously (e.g. stream the EEG, process the signal, interact with the client). Streaming, processing, and interacting with the client really need their own threads and even more than that, you need to ensure that long-running processes like processing an EEG signal don't hog all the CPU time, which is where sleeper functions come in. At first, my app handled one thing at a time - streaming, processing, or interacting with the client - but not all of them! After employing threading and sleeper functions, these problems went away.
 
@@ -62,10 +65,10 @@ def fft(data):
 
 In a previous post, we talked about the freq_filter function so all I'll say on that is that it returns 1 value, which is the magnitude of the signal at the frequency of interest. In the fft function, we take in 1,024 sample values (~4 seconds) from the EEG stream and calculate the componenent frequencies. As described in a previous post, we normalize our signal by background noise (2-20hz) so where you see `if (freq_filter(freq, fft, 9.9, 10.05) / alpha_rando) > 2`, we are testing if the 10hz signal has been detected by comparing it to our threshold of 2. If the signal has been detected, we want to notify the client (Google Chrome). When the client side receives the signal, a javascript function handles the data and moves the cat in the appropriate direction (10hz was left and 12hz was right). If no signal is detected, we'll just print out the max frequency that was detected.
 
-<br>
-<div style="text-align:center;"><img border="5" src="/assets/entrainment/app_screenshot.png"></div>
-<div style="text-align:center;">Screenshot of the app.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/app_screenshot.png" alt="App screenshot">
+  <figcaption>Screenshot of the app.</figcaption>
+</figure>
 
 You can see the app in action here: <a href="https://www.youtube.com/watch?v=f81T0KcprpM" target="_blank">Brain Computer Interface (BCI) using Entrainment with EEG</a>
 

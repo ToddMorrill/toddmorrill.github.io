@@ -1,10 +1,16 @@
 ---
-layout: post
 title: "Tackling Climate Change with Machine Learning Paper Review"
 date: 2019-09-21
 categories:
     - Paper Reviews
-commentIssueId: 31
+tags:
+    - paper reviews
+    - climate change
+header:
+    teaser: /assets/images/paper_reviews/climate_change_ml_applications.png
+excerpt: TLDR; Paper review of https://arxiv.org/abs/1906.05433, Tackling Climate Change with Machine Learning
+toc: true
+toc_sticky: true
 ---
 TLDR; Paper review of <a href="https://arxiv.org/abs/1906.05433" target="_blank"> Tackling Climate Change with Machine Learning</a>
 
@@ -12,12 +18,11 @@ Recently-ish (June 2019), a paper was released by a number of researchers on how
 
 Many of the top US, Canadian, and European institutions contributed, namely CMU, Stanford, Google, University of Montreal, and DeepMind. The paper is 53 pages long so kudos to you if you make it through this whole recap, and even more kudos if you make it through the whole 53-page paper. In this post, I will highlight some points that I found interesting from each of the climate change solution domains.
 
-<br>
-<div style="text-align:center;"><img src="/assets/paper_reviews/climate_change_ml_applications.png" style="max-width:720px"></div>
-<div style="text-align:center"></div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/paper_reviews/climate_change_ml_applications.png" alt="Climate page ML applications">
+</figure>
 
-## Introduction
+# Introduction
 Highlighted portions and commentary:
 1. Entrepreneurs and investors would be wise to read this paper. There are some terrific opportunities for those that are willing to take risks and work on one of humanity's most important challenges.
     * I have always thought it would be neat to generate a green score for businesses (e.g. restaurants, hotels, tour operators, etc.) and have that be one of the criteria on a Google or Yelp review. I'd bet if the data was reliable, it would influence consumer buying preferences.
@@ -25,8 +30,8 @@ Highlighted portions and commentary:
 1. Website for collaborators and relevant data: <a href="https://climatechange.ai/" target="_blank">https://climatechange.ai/</a>.
 1. There is a supremely human element to climate change as echoed by the last sentence in the introduction section, "While we hope that ML will be useful in reducing costs associated with climate action, humanity also must decide to act." I'll never forget a college professor telling me that combating climate change is more of a political battle than a technological one.
 
-## Mitigation
-#### Electricity Systems
+# Mitigation
+## Electricity Systems
 TLDR; electricity systems powered by fossil fuels are responsible for ~25% of all human-caused greenhouse gas emissions.
 
 Highlighted portions and commentary:
@@ -47,7 +52,7 @@ Highlighted portions and commentary:
 1. ML can use sensor/satellite imagery to suggest pipeline maintenance and prevent methane gas leaks. Predictive maintenance can also proactively suggest electricty grid upgrades.
 1. Make energy consumption forecasts for data-limited locales (e.g. developing world). For example, in the developed world researchers might identify a relationship between electricity consumption and cell tower usage. In the developing world, where electricity consumption data may not be available and cell tower usage data may be available, impute the energy usage.
 
-#### Transportation
+## Transportation
 TLDR; the transportation sector accounts for ~25% of all energy-related CO<sub>2</sub> emissions.
 
 Highlighted portions and commentary:
@@ -72,7 +77,7 @@ Highlighted portions and commentary:
 1. ML can play a role in battery research.
 1. (As an avid CitiBike and Divvy Bike user,) ML can be used to rebalance bikes throughout the city from high inventory to low inventory neighborhoods.
 
-#### Buildings & Cities
+## Buildings & Cities
 TDLR; Energy consumed in buildings is responsible for a quarter of global energy-related emissions (i.e. energy-related as compared to other sources of emissions such as methane from farming, etc.).
 
 Highlighted portions and commentary:
@@ -108,7 +113,7 @@ learning with multi-relational data</a>
     - <a href="https://ieeexplore.ieee.org/document/7230259" target="_blank">Methodologies for cross-domain data fusion: An overview</a>
     - <a href="https://www.researchgate.net/publication/315698712_A_Survey_on_Ensemble_Learning_for_Data_Stream_Classification" target="_blank">Ensemble learning for data stream analysis: A survey</a>
 
-#### Industry
+## Industry
 TLDR; The industrial sector (e.g. cement production, oil & gas pipelines, etc.) spends billions annually collecting data on factories and supply chains, making this a ripe domain for machine learning modeling. Cement & steel production together acccount for 9% of all global GHG emissions.
 
 Highlighted portions and commentary:
@@ -124,7 +129,7 @@ environmental life cycle assessment of conventional and electric vehicles</a>
 goal and scope definition, inventory analysis, and applications</a>
 1. DeepMind used <a href="https://deepmind.com/blog/article/deepmind-ai-reduces-google-data-centre-cooling-bill-40" target="_blank">reinforcement learning</a> to optimize the energy usage in Google's data centers.
 
-#### Farms & Forest
+## Farms & Forest
 TLDR; Deforestation and unsustainable agriculture are freeing large amounts of sequestered carbon held in trees, peat bogs, and soil.
 
 Highlighted portions and commentary:
@@ -141,7 +146,7 @@ Highlighted portions and commentary:
 1. The Jevons paradox is at play again if we make forest harvesting more efficient.
 1. Again, the politics of this situation also rears its head. Agriculture involves a complex web of large-scale farming interests, small-scale farmers, agricultural equipment manufacturers, and chemical companies.
 
-#### Carbon Dioxide Removal
+## Carbon Dioxide Removal
 TLDR; Many experts argue that global emissions need to become net-negative if we are to avoid the most serious consequences of climate change.
 
 Highlighted portions and commentary:
@@ -150,14 +155,15 @@ Highlighted portions and commentary:
 1. This is one of the smaller sections in the paper, perhaps indicating white space for entrepreneurs and researchers.
 
 ## Adaptation
-<div style="text-align:center;">
-<a href="https://www.youtube.com/watch?v=XGi2a0tNjOo&feature=youtu.be" target="_blank"><img src="/assets/paper_reviews/climate_modeling.png" style="max-width:720px">
-</a>
-</div>
-<div style="text-align:center">
-<a href="https://www.youtube.com/watch?v=XGi2a0tNjOo&feature=youtu.be" target="_blank">Introduction to Climate Modeling</a></div>
-<br>
-#### Climate Prediction
+<figure class="align-center">
+    <a href="https://www.youtube.com/watch?v=XGi2a0tNjOo&feature=youtu.be" target="_blank">
+        <img src="/assets/images/paper_reviews/climate_modeling.png" alt="Climate page ML applications">
+    </a>
+    <figcaption><a href="https://www.youtube.com/watch?v=XGi2a0tNjOo&feature=youtu.be" target="_blank">Introduction to Climate Modeling</a>
+    </figcaption>
+</figure>
+
+## Climate Prediction
 Highlighted portions and commentary:
 1. Climate modeling is clearly something that simulation experts, computer scientists, data scientists, and climate scientists can all work together on.
 1. The compute requirements to simulate the climate are staggering.
@@ -182,7 +188,7 @@ Highlighted portions and commentary:
     - <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017GL076101" target="_blank">Earth system modeling 2.0 : a blueprint for models that learn from observations and targeted high-resolution simulations</a>
 1. Overall, this section felt very concrete and provided some clear starting points for researchers, computer scientists, and data scientists to get involved.
 
-#### Societal Impacts
+## Societal Impacts
 TLDR; If humanity does not meet its climate goals, then adaptation is the logical next step, which leads to the following questions: How do we reduce vulnerability to climate impacts? How do we support rapid recovery from climate-induced disruptions?
 
 Highlighted portions and commentary:
@@ -199,7 +205,7 @@ Highlighted portions and commentary:
     - <a href="https://arxiv.org/abs/1705.02355" target="_blank">Accelerating science with generative adversarial networks: an application to 3d particle showers in multilayer calorimeters</a>
     - <a href="https://www.ics.uci.edu/~welling/publications/papers/WhyMLneedsStatistics.pdf" target="_blank">Are ML and statistics complementary?</a>
 
-#### Solar Geoengineering
+## Solar Geoengineering
 TLDR; The gist of solar geoengineering is to reduce the amount of solar radiation that makes to the earth, thus reducing the amount that the atmosphere can be warmed.
 
 Highlighted portions and commentary:
@@ -211,8 +217,8 @@ Highlighted portions and commentary:
 1. The author highlights the moral hazard of this technology. My sense is that he means this type of technology may allow humanity to become even more complacent and take no further action on climate change.
     - This type of technology feels a bit like escapism, a theme explored in a terrific sci-fi book called the <a href="https://en.wikipedia.org/wiki/The_Dark_Forest" target="_blank">The Dark Forest</a>, by Cixin Liu, the second book in an amazing trilogy.
 
-## Tools for Action
-#### Tools for Individuals
+# Tools for Action
+## Tools for Individuals
 TLDR; Individual action is important to combat climate change.
 
 Highlighted portions and commentary:
@@ -222,7 +228,7 @@ Highlighted portions and commentary:
     - <a href="https://arxiv.org/abs/1905.03709" target="_blank">Visualizing the consequences of climate change using cycle-consistent adversarial networks</a>
 1. <a href="https://tmrow.com" target="_blank">tmrow.com</a>
 
-#### Tools for Society
+## Tools for Society
 TLDR; ML/AI can provide tools for policy, markets, and large-scale planning.
 
 Highlighted portions and commentary:
@@ -233,13 +239,13 @@ Highlighted portions and commentary:
 1. Multi-objective optimization is another technique that is broadly useful to incorporate tradeoffs in policy-making, infrastructure development, etc.
 1. Other interesting methods cited: particle swarm, genetic, or evolutionary algorithms to search for pareto-optimal solutions.
 
-#### Education
+## Education
 TLDR; This is partially a "people" problem, so education is a natural solution.
 
 Highlighted portions and commentary:
 1. Multi-armed bandit and adpaptive learning techniques can be used to optimize individual learning. 
 
-#### Finance
+## Finance
 TLDR; forecasting which companies, economies, etc. are most likely to be impacted by climate change can highlight medium and long-term risks.
 
 Highlighted portions and commentary:

@@ -1,9 +1,12 @@
 ---
-layout: post
 title: "Entrainment with Visual Stimuli"
 date: 2017-10-09
-categories: Biometrics
-commentIssueId: 25
+categories: NLP
+tags:
+    - biometrics
+header:
+    teaser: /assets/images/entrainment/entrainment.jpg
+excerpt: TLDR; I created a strobe video that my brain can entrain with.
 ---
 TLDR; I created a strobe video that my brain can entrain with.
 
@@ -11,10 +14,10 @@ When learning a new skill, especially with programming and hardware, I find it b
 
 <a href="https://en.wikipedia.org/wiki/Brainwave_entrainment" target="_blank">Brainwave entrainment</a> is when your brainwaves synchronize with visual, audio, or tactile stimulus. The goal for this experiment was to watch a video on a computer screen that flashes essentially a strobe light at a defined frequency such as 10 or 12hz and then be able to detect the entrained brainwaves in the EEG recording. *If we can detect a signal in our brainwaves, we can use it to issue commands.* The commands will be limited to a handful of actions (e.g. turn a robot left or right) but we'll be controlling something with our mind. To be sure, the idea here is that if you have multiple signals on the screen such as 10 or 12hz, each of which corresponds to an action, you can issue an action simply by looking at the corresponding frequency!
 
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/entrainment.jpg"></div>
-<div style="text-align:center;">A colleague was a real sport and volunteered to try entrainment..</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/entrainment.jpg" alt="Entrainment">
+  <figcaption>A colleague was a real sport and volunteered to try entrainment..</figcaption>
+</figure>
 
 A word of caution before proceeding, visual entrainment does pose the risk of seizures so if you're epileptic or you don't respond well to flashing lights, DO NOT TRY THIS EXPERIMENT.
 
@@ -64,4 +67,4 @@ The final thing I'll note here is that I found FFMPEG to be the fastest movie wr
 
 If you spend a little time reading the code it'll become clearer. There are two scripts worth checking out: 1) entrainment_891011hz_full.ipynb outputs a full screen strobe, and 2) entrainment_1012hz_split_screen.ipynb outputs a split screen strobe.
 
-In the next post, we'll cover the analysis of the entrained EEG signal.
+In the [next post]({% post_url 2017-10-10-detecting-entrainment-part-1%}), we'll cover the analysis of the entrained EEG signal.

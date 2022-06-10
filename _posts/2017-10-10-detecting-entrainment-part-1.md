@@ -1,9 +1,12 @@
 ---
-layout: post
 title: "Detecting Entrained Signals - Part I"
 date: 2017-10-10
 categories: Biometrics
-commentIssueId: 26
+tags:
+    - biometrics
+header:
+    teaser: /assets/images/entrainment/spectrogram.png
+excerpt: TLDR; I detected entrained brain waves from the EEG headset.
 ---
 TLDR; I detected entrained brain waves from the EEG headset.
 
@@ -23,11 +26,10 @@ First, I'll note that entrainment is not the most comfortable thing. You have to
 For this post, I'll be analyzing the results of watching the <a href="https://www.youtube.com/watch?v=ovRe8bMWF0E" target="_blank">100 second long full screen video</a>. When I created this video, I wanted to have 25 seconds of 8, 9, 10, and 11 hz respectively. Due to reasons explained in the <a href="{% post_url 2017-10-09-entrainment %}" target="_blank">previous post</a>, I ended up with a video that has 50 seconds at 8.6hz, 25 seconds at 10hz, and 25 seconds at 12hz. This is fine, I just had to remind myself of that when I analyzed the results.
 
 ### Analyze the data and try to detect the entrained signal
-
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/spectrogram.png"></div>
-<div style="text-align:center;">You can spot the entrained signals clear as day!</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/spectrogram.png" alt="Spectrogram">
+  <figcaption>You can spot the entrained signals clear as day!</figcaption>
+</figure>
 
 Since our ultimate goal is to be able to detect the signal of interest real time, I'll focus on how we can generate this spectrogram and detect the signal using something called the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.stft.html" target="_blank">Short Time Fourier Transform (STFT)</a>. I'll explain some code below for illustration purposes. Once we understand the principles involved, we can move on to calculating the Fourier Transform for short time segments with more control.
 
@@ -59,4 +61,4 @@ Let's unpack what the <a href="https://docs.scipy.org/doc/scipy/reference/genera
 
 Matplotlib can be tricky if you're not super familiar with it. plt.colormesh gives you the spectrogram, while the 10*np.log10 of our signal gives the power decibels to scale the signal to a more reasonable range. I happen to like <a href="https://matplotlib.org/examples/color/colormaps_reference.html">plt.get_cmap('jet'))</a> but you can experiment with other color maps. The only other thing worth noting (and isn't self-explanatory) is plt.clim. I had to play around with these color ranges until I was pleased with the way the spectrogram looks. 
 
-So there it is! I think I'm going to stop here and continue explaining how to analyze this signal in the next post. In the next post, we'll move beyond visual recognition of entrainment and move into a more rigorous alogorithmic approach to signal detection. Cheers.
+So there it is! I think I'm going to stop here and continue explaining how to analyze this signal in the [next post]({% post_url 2017-10-10-detecting-entrainment-part-2 %}). In the next post, we'll move beyond visual recognition of entrainment and move into a more rigorous algorithmic approach to signal detection.

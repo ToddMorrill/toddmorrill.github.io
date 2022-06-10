@@ -1,11 +1,14 @@
 ---
-layout: post
 title: "Knowledge Graph Construction - Named Entity Recognition (NER)"
 date: 2020-12-22
 categories:
     - NLP
+tags:
+    - NLP
+header:
+    teaser: /assets/images/knowledge_graphs/IOB_tagging.png
+excerpt: TLDR; I'm exploring how to extract entities from text in an unsupervised fashion.
 ---
-
 TLDR; I'm exploring how to extract entities from text in an unsupervised fashion.
 
 This post continues from a <a href="{% post_url 2020-12-21-Knowledge-Graph-Prelim %}" target="_blank">previous post</a> that introduces knowledge graphs with some motivating examples. Recall that knowledge graphs are made up of entities (i.e. nodes) and relations (i.e. edges). This post addresses entity extraction in order to create the nodes of the graph. This post will build from the <a href="https://web.stanford.edu/~jurafsky/slp3/17.pdf" target="_blank">Information Extraction</a> chapter from the textbook Speech and Language Processing.
@@ -13,16 +16,17 @@ This post continues from a <a href="{% post_url 2020-12-21-Knowledge-Graph-Preli
 ### Entity Extraction (i.e. Named Entity Recognition)
 In short, entities are a sequence of one or more words that correspond to a useful piece of information such as a person or a place. Named entity recognition is a task that attempts to correctly identify entities in a piece of text.
 
-We can treat entity extraction as a sequence labeling task and use a sequence classifier such as a Maximum Entropy Markov Model (MEMM), Conditional Random Field (CRF) model, or a Long Short-Term Memory (LSTM) model to label tokens. The label set is domain-specific but a news-based named entity recognition (NER) model might tag: {*person*, *organization*, *location*, ...}. Here's an example sentence to illustrate how tokens are labeled. This example is borrowed from <a href="https://web.stanford.edu/~jurafsky/slp3/17.pdf" target="_blank">Information Extraction</a> and refers to a snippet from a news article about airlines raising their prices.
+We can treat entity extraction as a sequence labeling task and use a sequence classifier such as a Maximum Entropy Markov Model (MEMM), Conditional Random Field (CRF) model, or a Long Short-Term Memory (LSTM) model to label tokens. The label set is domain-specific but a news-based named entity recognition (NER) model might tag: {`person`, `organization`, `location`, ...}. Here's an example sentence to illustrate how tokens are labeled. This example is borrowed from <a href="https://web.stanford.edu/~jurafsky/slp3/17.pdf" target="_blank">Information Extraction</a> and refers to a snippet from a news article about airlines raising their prices.
 
-American Airlines, a unit of AMR Corp., immediately matched the move, spokesman Tim Wagner said. $$\to$$ $$\textcolor{red}{[_{\text{ORG}} \text{American Airlines}]}$$, a unit of $$\textcolor{red}{[_{\text{ORG}} \text{AMR Corp.}]}$$, immediately matched the move, spokesman $$\textcolor{red}{[_{\text{PER}} \text{Tim Wagner}]}$$ said.
+American Airlines, a unit of AMR Corp., immediately matched the move, spokesman Tim Wagner said.
+$\to$ $\color{red}{\[\_{\text{ORG}} \text{American Airlines}\]}$, a unit of $\color{red}{\[\_{\text{ORG}}\text{AMR Corp.}\]}$, immediately matched the move, spokesman $\color{red}{\[\_{\text{PER}} \text{Tim Wagner}\]}$ said.
 
 Where ORG corresponds to organization and PER corresponds to person. In particular, each token in the sentence is tagged with beginning (B), inside (I), or outside (O), where tokens tagged with B are the start of an entity, tokens tagged with I are inside the entity (after the beginning token), and tokens tagged with O are outside of any entity. Here's an IOB representation of the same sentence above. This is the format used for training models.
 
-<br>
-<div style="text-align:center;"><img src="/assets/knowledge_graphs/IOB_tagging.png" style="max-width:720px"></div>
-<div style="text-align:center">IOB representation.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/knowledge_graphs/IOB_tagging.png" alt="IOB tagging">
+  <figcaption>IOB representation.</figcaption>
+</figure>
 
 As with all supervised learning problems, collecting labeled data is where the challenge begins. If you have a domain expert with plenty of time, you can have them read through a sizable sample of the documents in your corpus and develop a labeling methodology as they go. This labeling methodology will include definitions of classes (e.g. {*person*, *organization*, *location*, ...}) along with a number of useful examples. It's best to prioritize the test set first so you have a high confidence set of labels to evaluate against. From there, if the task is simple enough and you want to reduce the time spent by high-cost domain experts, you can ship the task out to a service like <a href="https://cloud.google.com/ai-platform/data-labeling/docs/text-request" target="_blank">Google's data labeling service</a> to massively scale the size of your training set. I successfully employed this approach while building a domain-specific text classifier. With this labeled set, you can train a sequence classifier to tag entities.
 

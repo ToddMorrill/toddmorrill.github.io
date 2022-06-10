@@ -1,11 +1,19 @@
 ---
-layout: post
 title: "Knowledge Graph Preliminaries"
 date: 2020-12-21
 categories:
     - NLP
+tags:
+    - NLP
+header:
+    teaser: /assets/images/misc/network.jpg
+excerpt: TLDR; I've been researching ways to construct knowledge graphs from text and then use them for NLP reasoning tasks.
 ---
 TLDR; I've been researching ways to construct knowledge graphs from text and then use them for NLP reasoning tasks.
+
+<figure class="align-center">
+  <img src="/assets/images/misc/network.jpg" alt="Beads on strings">
+</figure>
 
 Knowledge graphs are just that - graphs that encode knowledge. Typically nodes represent semantic concepts such as words or entities, while edges represent relations between these words or entities. For example, fruit, appple, and orange might be three concepts that all get their own node. The graph may contain the relation (i.e. edge type) *is-a* to represent the fact that an apple *is-a* fruit; an orange *is-a* fruit. So what can we do with knowledge graphs that we can't with other rich tools, such as deep learning based question-answering models? In short, my goal is to use the information encoded in knowledge graphs for reasoning tasks. I'll sketch out a few examples of NLP tasks that require reasoning in contrast to mere statistical correlation.
 
@@ -36,3 +44,5 @@ I've been working through a literature review of current methods for constructin
 * USC Center on Knowledge Graphs's long list of resources: <a href="https://usc-isi-i2.github.io/home/" target="_blank">Link</a>
 
 In future posts, I will dive into how to construct a text-based knowledge graph, which as we noted above, includes extracting entites (i.e. nodes) and relations (i.e. edges) from a corpus of text. These posts will build from the <a href="https://web.stanford.edu/~jurafsky/slp3/17.pdf" target="_blank">Information Extraction</a> chapter from the textbook Speech and Language Processing. From there, I'll need to explore how to reason with this data. Consider Example 2 above - suppose we successfully extracted the 3 airport names, what procedure can we rely on to translate those extracted entities into an answer to the question *How many airports were impacted by the nor'easter?*
+
+The [next post]({% post_url 2020-12-22-Knowledge-Graphs-NER %}) will address entity extraction.

@@ -1,9 +1,12 @@
 ---
-layout: post
 title: "Detecting Entrained Signals - Part II"
 date: 2017-10-10
 categories: Biometrics
-commentIssueId: 27
+tags:
+    - biometrics
+header:
+    teaser: /assets/images/entrainment/12hznormalized.png
+excerpt: TLDR; I detected entrained brain waves from the EEG headset.
 ---
 TLDR; I detected entrained brain waves from the EEG headset.
 
@@ -18,15 +21,12 @@ Here's our outline:
 * visual portion covered in the previous post: <a href="{% post_url 2017-10-10-detecting-entrainment-part-1 %}" target="_blank">Detecting Entrained Signals - Part I</a>
 
 ### Analyze the data and try to detect the entrained signal
-
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/12hzunnormalized.png"></div>
-<div style="text-align:center;">You can define a threshold. Above that threshold, we can say the signal has been detected.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/12hzunnormalized.png" alt="12 hz unnormalized">
+  <figcaption>You can define a threshold. Above that threshold, we can say the signal has been detected.</figcaption>
+</figure>
 
 What you see in the graphic above is a 12hz cross section from the STFT output. Let's look at the code that generated this plot.
-
-<br>
 
 {% highlight python %}
 def freq_filter(t, freqs, power, min_freq=10.0, max_freq=10.5, plot=True, threshold=3, vertical_plots=None, height=None):
@@ -60,10 +60,10 @@ From there we can plot the results and add in a couple extra lines to give us a 
 
 Due to cross-session differences (i.e. each time you put the EEG headset on), the threshold changes, likely due to the varying impedence on the electrodes. As such, it would be good if we could find a way to stabilize this threshold. One approach that came to mind was to normalize this signal by some other base signal such as the mean signal between 2-20hz. That mean of that range should basically just be noise. I'm literally creating a signal-to-noise ratio. Normalizing leads to far more stable results, and even improves our precision and recall scores quite dramatically for the 8.6hz and 10hz signal.
 
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/12hznormalized.png"></div>
-<div style="text-align:center;">Normalized 12hz signal.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/12hznormalized.png" alt="12 hz normalized">
+  <figcaption>Normalized 12hz signal.</figcaption>
+</figure>
 
 What you see in the graphic above is a 12hz cross section from the STFT output. Below the main plot, I included a cropped cross-section from spectrogram to drive the point home. The red in the spectrogram corresponds to the greater uVrms values in the plot above. Now let's look at the code that generated this plot.
 
@@ -91,11 +91,11 @@ def plot_normalized_signal(t, freq, filtered_signal, normalizing_signal, thresho
 
 This function is almost exactly the same as the one earlier in the post except this time the function takes a pre-filtered signal, and a normalizing signal in as arguments. 
 
-<br>
-<div style="text-align:center;"><img src="/assets/entrainment/10hzprecision_recall.png"></div>
-<div style="text-align:center;">Precision and recall results for a straight 10hz and normalized 10hz entrainment signal.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/entrainment/10hzprecision_recall.png" alt="Precision and recall">
+  <figcaption>Precision and recall results for a straight 10hz and normalized 10hz entrainment signal.</figcaption>
+</figure>
 
 So how good are we doing? We're able to detect our signal based on our naïve threshold approach. We can more rigorously evaluate our precision and recall metrics for the different signals. I was pleased to see the 10hz results improve so dramatically after using the normalizing technique described above. The rough idea here is that if we increase the threshold, we would expect precision to increase at the expense of recall. In other words, we’re being more selective about our detection criteria and thus more accurate in our predictions but the downside is a high false negative rate. On the flipside, lowering the threshold will result in higher recall and more false positives.
 
-With all of this in place, we are now ready to run some live experiments. Let's say we can detect 10 and 12hz with high fidelity, what should we do once we detect those signals? Turn the TV on? Issue commands to a robot? Move a CAT across the screen?!?! This wouldn't be the internet if we didn't do something with a cat. Until next post, cheers.
+With all of this in place, we are now ready to run some live experiments. Let's say we can detect 10 and 12hz with high fidelity, what should we do once we detect those signals? Turn the TV on? Issue commands to a robot? Move a CAT across the screen?!?! This wouldn't be the internet if we didn't do something with a cat. Take a look at the [next post]({% post_url 2017-10-11-BCI-with-entrainment %}).

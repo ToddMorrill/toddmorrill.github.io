@@ -1,21 +1,24 @@
 ---
-layout: post
 title: "BCI Research Proposal"
 date: 2020-12-22
 categories: 
     - Biometrics
+tags:
+    - biometrics
+header:
+    teaser: /assets/images/kmeans/raw_16_channels.png
+excerpt: TLDR; This post was adapted from a research proposal that I wrote while applying to the NSF GRFP.
 ---
-
 TLDR; This post was adapted from a research proposal that I wrote while applying to the NSF GRFP.
 
 Suppose you were tasked with listening to what one particular person was saying in a crowded arena filled with 80,000 cheering fans. This is analogous to listening to a few neurons firing amongst the approximately 100 billion neurons in the human brain. Deep learning models have gotten significantly better at decoding signals from raw Electroencephalogram (EEG) data in recent years but there is still tremendous room for improvement. One of my research aims is to develop deep learning models that expand the set of mental states that can be detected from EEG data.
 
 Challenges to reliable classification of EEG data remain. These include movement artifacts and a low signal-to-noise ratio. See the figure below, which is a one minute recording of my brain data, demonstrating a variety of recording artifacts. One additional challenge to working with EEG data is its low spatial resolution relative to its temporal resolution. The EEG device that I work with can record data at a stunning rate of 8,000 Hz but on only 16 electrodes. Further research is required to determine what the minimal number of electrodes required is for a given classification task. Finally, more work is needed to develop person-independent brain-computer interface (BCI) systems.
 
-<br>
-<div style="text-align:center;"><img src="/assets/kmeans/raw_16_channels.png" style="max-width:720px"></div>
-<div style="text-align:center">One minute recording of my brain data capturing movement artifacts.</div>
-<br>
+<figure class="align-center">
+  <img src="/assets/images/kmeans/raw_16_channels.png" alt="EEG data">
+  <figcaption>One minute recording of my brain data capturing movement artifacts.</figcaption>
+</figure>
 
 Deep learning models excel in domains where it is difficult to create hand engineered features. This makes deep learning particularly well-suited to handle EEG data [1]. To date, deep learning models for EEG data have excelled at sleep classification, emotional state classification, mental disorder classification, and motor imagery classification. Rudimentary P300 signal systems have been used for typing letters [2]. Most of these methods only work with 10 or fewer classes and classify very coarse mental states. I would like to investigate what other mental states can be discerned from EEG data such as sets of colors, shapes, and even small vocabularies such as {yes, no, more, less}. If this can be proven, we can gradually expand the set of mental states that can be discerned.
 
