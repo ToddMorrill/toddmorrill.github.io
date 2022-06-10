@@ -1,6 +1,7 @@
 ---
 title: "About me"
 permalink: "/about/"
+excerpt: "Page about Todd Morrill"
 ---
 <figure style="width: 300px" class="align-right">
   <img src="/assets/images/about_me.jpg" alt="Big Bend National Park, 2022">
