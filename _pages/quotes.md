@@ -22,3 +22,5 @@ The two most important days in your life are the day you are born and the day yo
 quel che sarà, sarà (what will be, will be)
 
 好事多磨 (good things require hard work)
+
+This too shall pass.

@@ -6,5 +6,5 @@ main:
     url: /about/
   - title: "Tags"
     url: /tags/
-  - title: "Quotes"
-    url: /quotes/
+  - title: "CV"
+    url: /assets/pdfs/ToddMorrill_CV_111623.pdf
