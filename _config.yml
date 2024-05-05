@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Todd's Blog"
+title                    : "Todd's Website"
 title_separator          : "-"
 subtitle                 : "Thoughts on machine learning and applications"
 name                     : "Todd Morrill"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Todd Morrill"
   avatar           : "/assets/images/todd.jpg"
-  bio              : "MS in Computer Science student at **[Columbia University](https://www.cs.columbia.edu/)** and senior data scientist at **[PwC](https://www.pwc.com/us/en/services/consulting/technology/emerging-technology.html)**."
+  bio              : "PhD student in Computer Science at **[Columbia University](https://www.cs.columbia.edu/)**."
   location         : "New York, NY"
   email            :
   links:
@@ -300,6 +300,8 @@ defaults:
       share: true
       related: true
       show_date: true
+      classes: 
+        - wide
   # _pages
   - scope:
       path: ""
@@ -312,3 +314,5 @@ defaults:
       share: true
       related: false
       show_date: false
+      classes:
+        - wide
