@@ -119,9 +119,9 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/tee_oh_double_d"
+    - label: "X (Twitter)"
+      icon: "fa-brands fa-x-twitter"
+      url: "https://x.com/tee_oh_double_d"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
@@ -134,13 +134,16 @@ author:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/todd-morrill-a0b47b2a"
+    - label: "Google Scholar"
+      icon: "fa-brands fa-google-scholar"
+      url: "https://scholar.google.com/citations?user=yh6GBdcAAAAJ&hl=en"
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/tee_oh_double_d"
+    - label: "X (Twitter)"
+      icon: "fa-brands fa-x-twitter"
+      url: "https://x.com/tee_oh_double_d"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
@@ -159,6 +162,9 @@ footer:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/todd-morrill-a0b47b2a"
+    - label: "Google Scholar"
+      icon: "fa-brands fa-google-scholar"
+      url: "https://scholar.google.com/citations?user=yh6GBdcAAAAJ&hl=en"
 
 
 # Reading Files

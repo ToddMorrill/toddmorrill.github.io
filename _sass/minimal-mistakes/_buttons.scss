@@ -39,7 +39,9 @@
   (info, $info-color),
   (facebook, $facebook-color),
   (twitter, $twitter-color),
-  (linkedin, $linkedin-color);
+  (linkedin, $linkedin-color),
+  (google-scholar, $google-scolar-color),
+  (x, $x-color);
 
   @each $buttoncolor, $color in $buttoncolors {
     &--#{$buttoncolor} {
