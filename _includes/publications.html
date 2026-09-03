@@ -1,0 +1,39 @@
+{%- comment -%}
+Renders the Research section from _data/publications.yml (newest first).
+- Author names containing site.author.name are bolded.
+- Links without a url render as muted "coming soon" placeholders.
+- BibTeX is hidden until the reader clicks the toggle (tiny inline script below).
+{%- endcomment -%}
+<div class="publications">
+{% for pub in site.data.publications %}
+  <div class="publication" id="pub-{{ pub.key }}">
+    <div class="publication__thumb">
+      <img src="{{ pub.thumbnail | default: '/assets/images/publications/placeholder.svg' | relative_url }}" alt="Figure from {{ pub.title | escape }}">
+    </div>
+    <div class="publication__body">
+      <div class="publication__title">{% if pub.project %}<a href="{{ pub.project | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</div>
+      <div class="publication__authors">{% for a in pub.authors %}{% if a contains site.author.name %}<strong>{{ a }}</strong>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+      <div class="publication__venue"><em>{{ pub.venue }}</em>, {{ pub.year }}.{% if pub.note %} {{ pub.note }}{% endif %}</div>
+      <div class="publication__links">
+        {%- if pub.project %}<a href="{{ pub.project | relative_url }}">Project page</a>{% endif -%}
+        {%- for l in pub.links -%}
+          {%- if l.url %}<a href="{{ l.url }}">{{ l.label }}</a>{% else %}<span class="publication__link--todo" title="Coming soon">{{ l.label }}</span>{% endif -%}
+        {%- endfor -%}
+        {%- if pub.bibtex %}<a href="#bibtex-{{ pub.key }}" class="publication__bibtex-toggle" role="button" aria-expanded="false" aria-controls="bibtex-{{ pub.key }}">BibTeX</a>{% endif -%}
+      </div>
+      {% if pub.bibtex %}<pre class="publication__bibtex" id="bibtex-{{ pub.key }}" hidden>{{ pub.bibtex | strip | escape }}</pre>{% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+<script>
+  document.querySelectorAll('.publication__bibtex-toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function (event) {
+      event.preventDefault();
+      var target = document.getElementById(toggle.getAttribute('aria-controls'));
+      var isOpen = !target.hidden;
+      target.hidden = isOpen;
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>

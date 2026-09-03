@@ -1,0 +1,112 @@
+# Publications rendered in the Research section of the landing page (index.md)
+# by _includes/publications.html. Keep newest first.
+#
+# Fields:
+#   key        short slug; used for the HTML id and as the thumbnail filename
+#   title      paper title
+#   authors    list of display names; any entry containing the site author's
+#              name is bolded automatically. Add "*" for equal contribution.
+#   venue      full venue name, shown in italics
+#   year       publication year
+#   note       optional trailing text, e.g. "Oral presentation." or where the
+#              workshop version appeared
+#   thumbnail  image under /assets/images/publications/ (about 640px wide);
+#              omit to show placeholder.svg
+#   project    optional URL of a project page; when set, the title links to it
+#              and a "Project page" link is added
+#   links      list of {label, url}. Leave url blank to render a muted
+#              "coming soon" placeholder so the gap is visible.
+#   bibtex     literal BibTeX block, shown behind a toggle
+
+- key: bullet-trains
+  title: "Bullet Trains: Parallelizing Training of Temporally Precise Spiking Neural Networks"
+  authors: ["Todd Morrill", "Christian Pehle", "Anthony Zador"]
+  venue: "International Conference on Machine Learning (ICML)"
+  year: 2026
+  thumbnail: /assets/images/publications/bullet-trains.png
+  # project: /projects/bullet-trains/
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2603.13283
+    - label: PDF
+      url: https://arxiv.org/pdf/2603.13283
+    - label: Code
+      url: https://github.com/ToddMorrill/snn-bullet-trains
+  bibtex: |
+    @inproceedings{morrill2026bullettrains,
+      title     = {Bullet Trains: Parallelizing Training of Temporally Precise Spiking Neural Networks},
+      author    = {Morrill, Todd and Pehle, Christian and Zador, Anthony},
+      booktitle = {Proceedings of the 43rd International Conference on Machine Learning (ICML)},
+      year      = {2026},
+      url       = {https://arxiv.org/abs/2603.13283}
+    }
+
+- key: survival-moe
+  title: "Let the Experts Speak: Improving Survival Prediction & Calibration via Mixture-of-Experts Heads"
+  authors: ["Todd Morrill", "Aahlad Manas Puli", "Murad Megjhani", "Soojin Park", "Richard Zemel"]
+  venue: "Machine Learning for Health (ML4H) Symposium"
+  year: 2025
+  note: "Also presented at the NeurIPS 2025 Learning from Time Series for Health Workshop."
+  thumbnail: /assets/images/publications/survival-moe.png
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2511.09567
+    - label: PDF
+      url: https://arxiv.org/pdf/2511.09567
+    - label: Code
+      url: https://github.com/ToddMorrill/survival-moe
+  bibtex: |
+    @inproceedings{morrill2025experts,
+      title     = {Let the Experts Speak: Improving Survival Prediction \& Calibration via Mixture-of-Experts Heads},
+      author    = {Morrill, Todd and Puli, Aahlad Manas and Megjhani, Murad and Park, Soojin and Zemel, Richard},
+      booktitle = {Proceedings of the Machine Learning for Health (ML4H) Symposium},
+      year      = {2025},
+      url       = {https://arxiv.org/abs/2511.09567}
+    }
+
+- key: social-orientation
+  title: "Social Orientation: A New Feature for Dialogue Analysis"
+  authors: ["Todd Morrill", "Zhaoyuan Deng", "Yanda Chen", "Amith Ananthram", "Colin Wayne Leach", "Kathleen McKeown"]
+  venue: "LREC-COLING"
+  year: 2024
+  note: "Oral presentation."
+  thumbnail: /assets/images/publications/social-orientation.png
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2403.04770
+    - label: PDF
+      url: https://arxiv.org/pdf/2403.04770
+    - label: Code
+      url: https://github.com/ToddMorrill/social-orientation
+  bibtex: |
+    @inproceedings{morrill2024social,
+      title     = {Social Orientation: A New Feature for Dialogue Analysis},
+      author    = {Morrill, Todd and Deng, Zhaoyuan and Chen, Yanda and Ananthram, Amith and Leach, Colin Wayne and McKeown, Kathleen},
+      booktitle = {Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)},
+      year      = {2024},
+      url       = {https://arxiv.org/abs/2403.04770}
+    }
+
+- key: prompt-risk-control
+  title: "Prompt Risk Control: A Rigorous Framework for Responsible Deployment of Large Language Models"
+  authors: ["Thomas Zollo", "Todd Morrill*", "Zhun Deng*", "Jake Snell", "Toniann Pitassi", "Richard Zemel"]
+  venue: "International Conference on Learning Representations (ICLR)"
+  year: 2024
+  note: "Also presented at the NeurIPS 2023 Socially Responsible Language Modelling Research (SoLaR) Workshop. * Equal contribution."
+  thumbnail: /assets/images/publications/prompt-risk-control.png
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2311.13628
+    - label: PDF
+      url: https://arxiv.org/pdf/2311.13628
+    - label: Code
+      url: https://github.com/thomaspzollo/prompt_risk
+  bibtex: |
+    @inproceedings{zollo2024prompt,
+      title     = {Prompt Risk Control: A Rigorous Framework for Responsible Deployment of Large Language Models},
+      author    = {Zollo, Thomas P. and Morrill, Todd and Deng, Zhun and Snell, Jake C. and Pitassi, Toniann and Zemel, Richard},
+      booktitle = {The Twelfth International Conference on Learning Representations (ICLR)},
+      year      = {2024},
+      url       = {https://arxiv.org/abs/2311.13628}
+    }
+

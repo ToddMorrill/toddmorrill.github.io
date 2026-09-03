@@ -7,3 +7,119 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* ==========================================================================
+   Site customizations (landing page)
+   ========================================================================== */
+
+/* Larger author photo in the sidebar on desktop */
+.author__avatar img {
+  @include breakpoint($large) {
+    max-width: 180px;
+  }
+}
+
+/* News list: bold date column with the item text beside it */
+.news {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.news__date {
+  flex: 0 0 5.5em;
+  font-weight: bold;
+  color: $muted-text-color;
+}
+
+/* Publication list: thumbnail on the left, details on the right */
+.publication {
+  display: flex;
+  gap: 1.25em;
+  align-items: flex-start;
+  margin-bottom: 1.75em;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.75em;
+  }
+}
+
+.publication__thumb {
+  flex: 0 0 210px;
+  max-width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+}
+
+.publication__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.publication__title {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 0.2em;
+}
+
+.publication__authors {
+  margin-bottom: 0.2em;
+}
+
+.publication__venue {
+  color: $muted-text-color;
+  margin-bottom: 0.4em;
+}
+
+.publication__links {
+  a,
+  span {
+    display: inline-block;
+    margin-right: 0.9em;
+  }
+}
+
+.publication__link--todo {
+  color: $muted-text-color;
+  cursor: default;
+}
+
+.publication__bibtex {
+  margin-top: 0.6em;
+  font-size: 0.8em;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+/* Keep the sidebar (photo, name, links) fully opaque instead of fading until hovered */
+.sidebar {
+  @include breakpoint($large) {
+    opacity: 1;
+  }
+}
+
+/* Masthead text (site title, subtitle, nav links, search icon) at full strength
+   instead of the lighter gray that only darkens on hover */
+.greedy-nav a,
+.search__toggle {
+  color: $masthead-link-color-hover;
+}
